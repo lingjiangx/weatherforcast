@@ -30,15 +30,17 @@ img {
 }
 
 #number {
+  position: relative;
   font-size: 36px;
   font-weight: 700;
   line-height: 60px;
+  top: 15px;
 }
-#units {
+
+.units {
   position: relative;
-  top: -20px;
-  left: -3px;
-  font-size: 15px;
+  font-size: 16px;
+  top: -5px;
 }
 .search-form {
   display: flex;
@@ -58,4 +60,10 @@ img {
 }
 button {
   margin: 3px;
+}
+
+.col-6 {
+  text-align: left;
+  left: 10px;
+  top: -5px;
 }
