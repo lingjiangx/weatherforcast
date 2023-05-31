@@ -39,3 +39,18 @@ img {
   left: -3px;
   font-size: 15px;
 }
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.search-form form {
+  width: 100%;
+  display: flex;
+}
+
+.search-form input {
+  flex: 1;
+}

@@ -6,21 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="src/styles1.css" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="weather-app-wrapper">
       <div class="weather-app">
-        <h1>New York</h1>
+        <div class="search-form">
+          <form class="form-inline">
+            <input
+              id="cityInput"
+              type="text"
+              class="form-control mr-2"
+              placeholder="Search here"
+            />
+            <button type="submit" class="btn btn-primary" id="search-button">
+              Search
+            </button>
+            <button type="submit" class="btn btn-dark" id="current-button">
+              Current
+            </button>
+          </form>
+        </div>
+
+        <h1 id="city">New York</h1>
         <div class="header">
           <ul>
-            <li>Friday 05:50</li>
-            <li>Clear</li>
+            <li id="current-time">Friday 05:50</li>
+            <li id="description">Clear</li>
           </ul>
         </div>
 
@@ -38,9 +56,9 @@
           </div>
           <div class="col-6">
             <ul>
-              <li>Participation: 10%</li>
-              <li>Humidity: 50%</li>
-              <li>Wind: 10km/h</li>
+              <li>Visibility: <span id="visibility">10</span></li>
+              <li>Humidity: <span id="humidity">50</span>%</li>
+              <li>Wind: <span id="wind">10</span></li>
             </ul>
           </div>
         </div>
