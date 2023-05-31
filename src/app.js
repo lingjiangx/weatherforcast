@@ -54,3 +54,24 @@ function showCityName(response) {
 
 let currentButton = document.getElementById("current-button");
 currentButton.addEventListener("click", getCurrentPosition);
+
+// type a city-search button
+
+function showCityInput() {
+  let input = document.getElementById("cityInput");
+  let inputValue = input.value;
+  let cityElement = document.getElementById("city");
+  cityElement.innerHTML = `${inputValue}`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=0c5f59b841b794d99933757d256233b1&units=metric`;
+  axios
+    .get(url)
+    .then((response) => {
+      showWeatherDetails(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+let searchButton = document.getElementById("search-button");
+searchButton.addEventListener("click", showCityInput);
