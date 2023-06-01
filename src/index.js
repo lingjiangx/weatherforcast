@@ -1,5 +1,5 @@
 let apiKey = "0c5f59b841b794d99933757d256233b1";
-
+//show weather details
 function showWeatherDetails(response) {
   let currentTime = new Date();
   let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -27,6 +27,7 @@ function showWeatherDetails(response) {
   celsiusTemperature = response.data.main.temp;
 }
 
+//show city name
 function showCityName(response) {
   let cityName = response.data.name;
   let cityNameElement = document.getElementById("city");
@@ -39,7 +40,7 @@ function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
 
-  let geoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=0c5f59b841b794d99933757d256233b1&units=metric`;
+  let geoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
   axios.get(geoUrl).then((response) => {
     showCityName(response);
     showWeatherDetails(response);
@@ -79,6 +80,33 @@ function showCelsius(event) {
   let celsiusElement = document.getElementById("number");
   celsiusElement.innerHTML = Math.round(celsiusTemperature);
 }
+//repetitive weather rolls
+function showForcastUnit() {
+  let forcastunitElement = document.getElementById("weather-roll");
+  let forcastHTML = `<div class="row">`;
+  let days = ["Thur", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forcastHTML =
+      forcastHTML +
+      ` 
+            <div class="col-2">
+              <p>${day}</p>
+              <img
+                src="https://openweathermap.org/img/wn/10d@2x.png"
+                alt="forcast-icon"
+                width="80px"
+              />
+              <span class="max-temp">18°</span>
+              <span class="min-temp">12°</span>
+            </div>
+
+     `;
+  });
+
+  forcastHTML = forcastHTML + `</div>`;
+  forcastunitElement.innerHTML = forcastHTML;
+}
+showForcastUnit();
 
 // eventlistener
 let fahrenheitLink = document.getElementById("fahrenheit-link");
