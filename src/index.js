@@ -1,5 +1,4 @@
 let apiKey = "0c5f59b841b794d99933757d256233b1";
-let temperature = null;
 
 function showWeatherDetails(response) {
   let currentTime = new Date();
